@@ -22,7 +22,7 @@
                     <div style="display:flex; gap:10px; align-items: center; ">
 
                         <img style="  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius: 100%; width: 50px; height: 50px; background-color: rgb(223, 110, 110);"
-                            src="/assets/638026309599934750Image01789.jpg" alt="">
+                            src="./assets/638026309599934750Image01789.jpg" alt="">
                         <div>
                             <div style="font-weight: 600;">
                                 Mohammed Ayyad
@@ -66,7 +66,7 @@
                     </div>
 
 
-                    <img class="sliderimage sliderImageAnimateFadeIn" src="/assets/bom0.jpg" alt="">
+                    <img class="sliderimage sliderImageAnimateFadeIn" src="./assets/bom0.jpg" alt="">
 
 
                     <div class="nextnav navbuttons"
@@ -93,21 +93,21 @@
                     style="max-height: 900px; overflow: hidden; position: relative; margin: 50px 0px; display: flex; justify-content: center; padding: 0px 5%;">
                     <div class="row" style="display: flex ; gap: 4px;">
                         <div class="col" style=" width: 33.333333%">
-                            <img src="/assets/ref5.jpg" style="width: 100%; aspect-ratio: 11.7/15;" alt="">
-                            <img src="/assets/ref1.jpg" style="width: 100%; aspect-ratio: 12/16;" alt="">
+                            <img src="./assets/ref5.jpg" style="width: 100%; aspect-ratio: 11.7/15;" alt="">
+                            <img src="./assets/ref1.jpg" style="width: 100%; aspect-ratio: 12/16;" alt="">
                         </div>
                         <div class="col"  style=" width:  33.333333%">
-                            <img src="/assets/ref3.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
-                            <img src="/assets/ref2.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
-                            <img src="/assets/ref4.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
+                            <img src="./assets/ref3.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
+                            <img src="./assets/ref2.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
+                            <img src="./assets/ref4.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
                             
 
 
                         </div>
                         <div class="col"  style=" width:  33.333333%">
-                            <img src="/assets/ref7.jpg" style="width: 100%; aspect-ratio: 16/15;" alt="">
-                            <img src="/assets/ref6.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
-                            <img src="/assets/ref9.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
+                            <img src="./assets/ref7.jpg" style="width: 100%; aspect-ratio: 16/15;" alt="">
+                            <img src="./assets/ref6.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
+                            <img src="./assets/ref9.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
 
 
 
@@ -133,11 +133,11 @@
                     style="max-height: 860px; overflow: hidden; position: relative; margin: 50px 0px; display: flex; justify-content: center; padding: 0px 5%;">
                     <div class="row" style="display: flex ; gap: 4px;">
                         <div class="col" style=" width: 50%">
-                            <img src="/assets/vict0.jpg" style="width: 100%; aspect-ratio: 11.5/20;" alt="">
+                            <img src="./assets/vict0.jpg" style="width: 100%; aspect-ratio: 11.5/20;" alt="">
                         </div>
                         <div class="col" style=" width:  50%">
-                            <img src="/assets/ref7.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
-                            <img src="/assets/vict1.jpeg" style="width: 100%; aspect-ratio: 16/13;" alt="">              
+                            <img src="./assets/ref7.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
+                            <img src="./assets/vict1.jpeg" style="width: 100%; aspect-ratio: 16/13;" alt="">              
                         </div>
                        
                     </div>
@@ -155,7 +155,7 @@
                     style="max-height: 860px; overflow: hidden; position: relative; margin: 50px 0px; display: flex; justify-content: center; padding: 0px 5%;">
                     <div class="row" style="display: flex ; gap: 4px;">
                         <div class="col" style=" width: 100%">
-                            <img src="/assets/c.jpg" style="width: 100%;" alt="">
+                            <img src="./assets/c.jpg" style="width: 100%;" alt="">
                         </div>
                         
                 
@@ -254,7 +254,7 @@
             sliderImageElement.classList.add("sliderImageAnimateFadeOut")
             let handler = (e) => {
                 sliderImageElement.classList.remove("sliderImageAnimateFadeOut")
-                sliderImageElement.setAttribute("src", `/assets/bom${imgindx}.jpg`)
+                sliderImageElement.setAttribute("src", `./assets/bom${imgindx}.jpg`)
                 sliderImageElement.classList.add("sliderImageAnimateFadeIn")
                 sliderImageElement.removeEventListener("animationend", handler)
 
@@ -263,12 +263,12 @@
         }
         prevnav.addEventListener("click", () => {
             imgindx = imgindx > 0 ? imgindx - 1 : 5
-            updateSliderImage(".sliderimage", "/assets/bom1.jpg", imgindx)
+            updateSliderImage(".sliderimage", "./assets/bom1.jpg", imgindx)
 
         })
         nextnav.addEventListener("click", () => {
             imgindx = (imgindx + 1) % 6
-            updateSliderImage(".sliderimage", "/assets/bom1.jpg", imgindx)
+            updateSliderImage(".sliderimage", "./assets/bom1.jpg", imgindx)
 
         })
 
