@@ -67,6 +67,10 @@
 
 
                     <img class="sliderimage sliderImageAnimateFadeIn" src="./assets/bom0.jpg" alt="">
+                    <img class="sliderimage sliderImageAnimateFadeIn hidden" src="./assets/bom1.jpg" alt="">
+                    <img class="sliderimage sliderImageAnimateFadeIn hidden" src="./assets/bom2.jpg" alt="">
+                    <img class="sliderimage sliderImageAnimateFadeIn hidden" src="./assets/bom4.jpg" alt="">
+                    <img class="sliderimage sliderImageAnimateFadeIn hidden" src="./assets/bom5.jpg" alt="">
 
 
                     <div class="nextnav navbuttons"
@@ -96,27 +100,23 @@
                             <img src="./assets/ref5.jpg" style="width: 100%; aspect-ratio: 11.7/15;" alt="">
                             <img src="./assets/ref1.jpg" style="width: 100%; aspect-ratio: 12/16;" alt="">
                         </div>
-                        <div class="col"  style=" width:  33.333333%">
+                        <div class="col" style=" width:  33.333333%">
                             <img src="./assets/ref3.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
                             <img src="./assets/ref2.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
                             <img src="./assets/ref4.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
-                            
-
 
                         </div>
-                        <div class="col"  style=" width:  33.333333%">
+                        <div class="col" style=" width:  33.333333%">
                             <img src="./assets/ref7.jpg" style="width: 100%; aspect-ratio: 16/15;" alt="">
                             <img src="./assets/ref6.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
                             <img src="./assets/ref9.jpg" style="width: 100%; aspect-ratio: 16/13;" alt="">
-
-
 
                         </div>
                     </div>
 
                 </div>
 
-              
+
 
                 <br>
                 The reality of our situation is dire. The constant fear of airstrikes and explosions has left us
@@ -137,9 +137,9 @@
                         </div>
                         <div class="col" style=" width:  50%">
                             <img src="./assets/ref7.jpg" style="width: 100%; aspect-ratio: 16/14;" alt="">
-                            <img src="./assets/vict1.jpeg" style="width: 100%; aspect-ratio: 16/13;" alt="">              
+                            <img src="./assets/vict1.jpeg" style="width: 100%; aspect-ratio: 16/13;" alt="">
                         </div>
-                       
+
                     </div>
                 </div>
                 <br>
@@ -157,8 +157,8 @@
                         <div class="col" style=" width: 100%">
                             <img src="./assets/c.jpg" style="width: 100%;" alt="">
                         </div>
-                        
-                
+
+
                     </div>
                 </div>
                 <br>
@@ -239,6 +239,10 @@
             animation: fadeIn 200ms ease-in forwards;
         }
 
+        .hidden {
+            display: none;
+        }
+
         .sliderImageAnimateFadeOut {
             animation: fadeOut 100ms ease-out forwards;
 
@@ -247,28 +251,52 @@
     <script>
         let prevnav = document.querySelector(".prevnav");
         let nextnav = document.querySelector(".nextnav");
+        let currentindx = 0
         let imgindx = 0;
-        function updateSliderImage(selector, src, imgindx) {
-            let sliderImageElement = document.querySelector(selector)
-            sliderImageElement.classList.remove("sliderImageAnimateFadeIn")
-            sliderImageElement.classList.add("sliderImageAnimateFadeOut")
+        // function updateSliderImage(selector, src, imgindx) {
+        //     let sliderImageElement = document.querySelector(selector)
+        //     sliderImageElement.classList.remove("sliderImageAnimateFadeIn")
+        //     sliderImageElement.classList.add("sliderImageAnimateFadeOut")
+        //     let handler = (e) => {
+        //         sliderImageElement.classList.remove("sliderImageAnimateFadeOut")
+        //         sliderImageElement.setAttribute("src", `./assets/bom${imgindx}.jpg`)
+        //         sliderImageElement.classList.add("sliderImageAnimateFadeIn")
+        //         sliderImageElement.removeEventListener("animationend", handler)
+
+        //     }
+        //     sliderImageElement.addEventListener("animationend", handler)
+        // }
+
+
+
+
+        function updateSliderImage2(selector, currentindx, imgindx) {
+            let sliderImageElement = document.querySelectorAll(selector)
+            sliderImageElement[currentindx].classList.remove("sliderImageAnimateFadeIn")
+            sliderImageElement[currentindx].classList.add("sliderImageAnimateFadeOut")
             let handler = (e) => {
-                sliderImageElement.classList.remove("sliderImageAnimateFadeOut")
-                sliderImageElement.setAttribute("src", `./assets/bom${imgindx}.jpg`)
-                sliderImageElement.classList.add("sliderImageAnimateFadeIn")
-                sliderImageElement.removeEventListener("animationend", handler)
+                sliderImageElement[currentindx].classList.add("hidden")
+                sliderImageElement[currentindx].classList.remove("sliderImageAnimateFadeOut")
+                sliderImageElement[imgindx].classList.remove("hidden")
+                sliderImageElement[imgindx].classList.add("sliderImageAnimateFadeIn")
+                sliderImageElement[currentindx].removeEventListener("animationend", handler)
 
             }
-            sliderImageElement.addEventListener("animationend", handler)
+            sliderImageElement[currentindx].addEventListener("animationend", handler)
         }
+
+
+
         prevnav.addEventListener("click", () => {
+            currentindx = imgindx;
             imgindx = imgindx > 0 ? imgindx - 1 : 5
-            updateSliderImage(".sliderimage", "./assets/bom1.jpg", imgindx)
+            updateSliderImage2(".sliderimage", currentindx, imgindx)
 
         })
         nextnav.addEventListener("click", () => {
+            currentindx = imgindx;
             imgindx = (imgindx + 1) % 6
-            updateSliderImage(".sliderimage", "./assets/bom1.jpg", imgindx)
+            updateSliderImage(".sliderimage", currentindx, imgindx)
 
         })
 
